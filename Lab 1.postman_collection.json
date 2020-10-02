@@ -1,0 +1,48 @@
+{
+	"info": {
+		"_postman_id": "0f05402e-2c6f-4b06-b0aa-34189e35e7dc",
+		"name": "Lab 1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Json test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d17ffc40-ca35-408c-9c6a-458ff36fc35a",
+						"exec": [
+							"pm.test(\"Is this User me and is me online\", function() {\r",
+							"\tvar jsonData = JSON.parse(responseBody);\r",
+							"\tpm.expect(jsonData.nickname).to.eql(\"N1x9d\");\r",
+							"\tpm.expect(jsonData.last_online).to.eql(\"сейчас на сайте\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://shikimori.one/api/users/412253",
+					"protocol": "https",
+					"host": [
+						"shikimori",
+						"one"
+					],
+					"path": [
+						"api",
+						"users",
+						"412253"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
