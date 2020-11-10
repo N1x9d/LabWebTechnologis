@@ -1,28 +1,346 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>HelloSpringLeaf</title>
-    <link rel="stylesheet" th:href="@{/css/index.css}"/>
-</head>
-<body>
-<h1>Hello Spring Leaf!</h1>
-<h2 th:text="${sid}"></h2>
+<html class="no-js" lang="zxx">
 
-<table>
-    <thead>
-    <tr>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Available from</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="product : ${products}">
-        <td th:text="${product.description}"></td>
-        <td th:text="${product.price}"></td>
-        <td th:text="${product.availableFrom}"></td>
-    </tr>
-    </tbody>
-</table>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+    <!--== <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> ==-->
+
+    <title>Shop :: Lukas - Car Parts Store eCommerce HTML Template</title>
+    <!--== Google Fonts ==-->
+    <link href="https://fonts.googleapis.com/css?family=Oswald:400,500,600,700%7CPoppins:400,400i,500,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!--== Ionicons Min CSS ==-->
+    <link href="assets/css/ionicons.min.css" rel="stylesheet" />
+    <!--== Font-Awesome Min CSS ==-->
+
+    <!--== Bootstrap Min CSS ==-->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!--== Main Style CSS ==-->
+    <link th:href="@{assets/css/style.css}" rel="stylesheet" />
+
+    <script>
+$(document).ready(function(){
+  $("#name").click(function(){
+    $("#Order_rule").text("Name");
+  });
+  $("#price").click(function(){
+   $("#Order_rule").text("Price");
+   });
+   $("#Animation").click(function(){
+   $("#Type").text("Animation");
+   });
+   $("#Skin").click(function(){
+   $("#Type").text("Skin");
+  });
+  $("#Emotion").click(function(){
+   $("#Type").text("Emotion");
+  });
+});
+
+
+    </script>>
+    <!--[if lt IE 9]>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <![endif]-->
+</head>
+
+<body>
+<!--== Start Header Area ==-->
+<header class="header-area">
+    <div class="container container-wide">
+        <div class="row align-items-center">
+            <div class="col-sm-4 col-lg-2">
+                <div class="site-logo text-center text-sm-left">
+                    <a href="index.html"><img src="assets/img/ISLogo.png" alt="Logo" width="70%" height="70%"/></a>
+                </div>
+            </div>
+
+            <div class="col-lg-7 d-none d-lg-block">
+                <div class="site-navigation">
+                    <ul class="main-menu nav">
+                        <li class="has-submenu"><a href="index.html">Home</a>
+                            <ul class="sub-menu">
+                                <li><a href="index.html">Home 1</a></li>
+                                <li><a href="index-2.html">Home 2</a></li>
+                                <li><a href="index-boxed.html">Home Box Layout</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="about.html">About</a></li>
+                        <li class="has-submenu"><a href="shop.html">Shop</a>
+                            <ul class="sub-menu">
+                                <li><a href="shop-left-sidebar.html">Shop Left Sidebar</a></li>
+                                <li><a href="shop-right-sidebar.html">Shop Right Sidebar</a></li>
+                                <li><a href="single-product.html">Single Product</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-submenu"><a href="blog.html">blog</a>
+                            <ul class="sub-menu">
+                                <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
+                                <li><a href="blog.html">Blog Right Sidebar</a></li>
+                                <li><a href="blog-details.html">Single Blog</a></li>
+                                <li><a href="blog-details-sidebar.html">Single Blog Sidebar</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li class="has-submenu"><a href="index.html">Pages</a>
+                            <ul class="sub-menu">
+                                <li><a href="cart.html">Cart</a></li>
+                                <li><a href="checkout.html">Checkout</a></li>
+                                <li><a href="wishlist.html">Wishlist</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-sm-8 col-lg-3">
+                <div class="site-action d-flex justify-content-center justify-content-sm-end align-items-center">
+                    <ul class="login-reg-nav nav">
+                        <li><a href="#">Login</a></li>
+                        <li><a href="#">Register</a></li>
+                    </ul>
+
+                    <div class="mini-cart-wrap">
+                        <a href="cart.html" class="btn-mini-cart">
+                            <i class="ion-bag"></i>
+                        </a>
+
+
+                    </div>
+
+                    <div class="responsive-menu d-lg-none">
+                        <button class="btn-menu">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!--== End Header Area ==-->
+
+<!--== Start Page Header Area ==-->
+<div class="page-header-wrap bg-img" data-bg="assets/img/bg/page-header-bg.jpg">
+
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="assets/img/bg/page-header-bg.jpg" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="assets/img/bg/page-header-bg.jpg" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="assets/img/bg/page-header-bg.jpg" alt="Third slide">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        </div>
+    </div>
+</div>
+<!--== End Page Header Area ==-->
+
+<!--== Start Page Content Wrapper ==-->
+<div class="page-content-wrapper sp-y">
+    <div class="shop-page-action-bar mb-30">
+        <div class="container container-wide">
+
+                <div >
+
+
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                       Order by
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="#" id="price">Price</a>
+                                        <a class="dropdown-item" href="#" id="name">Name</a>
+
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#"><p id="Order_rule">Default</p></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">Filters:</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Type
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="#" id="Skin">Skin</a>
+                                        <a class="dropdown-item" href="#" id="Emotion">Emotion</a>
+                                        <a class="dropdown-item" href="#" id="Animation">Animation</a>
+
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#"><p id="Type">All</p></a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Autor
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                                    <a class="dropdown-item" href="#" >def</a>
+                                    <a class="dropdown-item" href="#" >Emotion</a>
+                                    <a class="dropdown-item" href="#" >Animation</a>
+
+                                </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#"><p id="aaaa">All</p></a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </nav>
+
+            </div>
+        </div>
+    </div>
+
+
+<grid>
+    <div class="shop-page-product">
+        <div class="container container-wide">
+            <div  class="product-wrapper product-layout layout-grid">
+                <div  class="row mtn-30" >
+                    <!-- Start Product Item -->
+                    <div class="col-sm-6 col-lg-4 col-xl-3" th:each="product : ${products}">
+                        <div class="product-item" >
+                            <div class="product-item__thumb">
+                                <a href="single-product.html" >
+                                    <img height="370px" width="350px" class="thumb-primary" th:src="${product.prevImage}" alt="Product" />
+                                    <img  class="thumb-secondary" th:src="${product.linc}" alt="Product">
+                                </a>
+
+                                <div class="ratting">
+                                    <span><i class="ion-android-star"></i></span>
+                                    <span><i class="ion-android-star"></i></span>
+                                    <span><i class="ion-android-star"></i></span>
+                                    <span><i class="ion-android-star"></i></span>
+                                    <span><i class="ion-android-star-half"></i></span>
+                                </div>
+                            </div>
+
+                            <div class="product-item__content">
+                                <div class="product-item__info">
+                                    <h4 th:text="${product.description}" class="title"/>
+                                    <span class="price"><strong>Price:</strong> <strong th:text="${product.price}"/>$</span>
+                                </div>
+
+                                    <div class="product-item__action">
+                                    <button class="btn-add-to-cart"><i class="ion-bag"></i></button>
+                                    <button class="btn-add-to-cart"><i class="ion-ios-heart-outline"></i></button>
+                                    <button class="btn-add-to-cart"><i class="ion-eye"></i></button>
+                                </div>
+
+                                <div class="product-item__desc">
+                                    <p>Pursue pleasure rationally encounter consequences that are extremely painful. Nor
+                                        again is there anyone who loves or pursues or desires to obtain pain of itself,
+                                        because it is pain, but because occasionally circles</p>
+                                    <p>Pursue pleasure rationally encounter consequences that are extremely painful. Nor
+                                        again is there anyone who loves or pursues or desires to obtain pain of itself,
+                                        because it is pain, but because occasionally circes occur in and pain can
+                                        procure him some great ple cum soluta nobis est eligendi optio</p>
+                                </div>
+                            </div>
+
+                            <div class="product-item__sale">
+                                <span class="sale-txt">2%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Product Item -->
+
+
+                    <!-- End Product Item -->
+                </div>
+            </div>
+        </div>
+    </div>
+</grid>
+
+</div>
+<!--== End Page Content Wrapper ==-->
+
+<!--== Start Footer Area Wrapper ==-->
+<footer class="footer-area">
+    <div class="footer-widget-area">
+        <div class="container container-wide">
+            <div class="row mtn-40">
+                <div class="col-lg-3">
+                    <div class="widget-item">
+                        <div class="about-widget">
+                            <a href="index.html"><img src="assets/img/Logo_light.png" alt="Logo" /></a>
+                            <p>In VAAS you can customize yore virtual assistant to suit your taste </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-2">
+                    <div class="widget-item">
+                        <h4 class="widget-title">Information</h4>
+                        <div class="widget-body">
+                            <ul class="widget-list">
+                                <li><a href="#">Our company</a></li>
+                                <li><a href="#">Contact us</a></li>
+                                <li><a href="#">Our services</a></li>
+                                <li><a href="#">Why We?</a></li>
+                                <li><a href="#">Careers</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+<!--== End Responsive Menu Wrapper ==-->
+
+
+<!--=======================Javascript============================-->
+<!-- build:js assets/js/app.min.js -->
+<!--=== Modernizr Min Js ===-->
+
+<!--=== Bootstrap Min Js ===-->
+                <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+                <!--=== Slicknav Min Js ===-->
+<!-- endbuild -->
+
 </body>
+
 </html>
