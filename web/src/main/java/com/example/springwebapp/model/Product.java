@@ -20,13 +20,13 @@ public class Product {
         this.autor.addPortfolio(this);
         switch (type){
             case 1:
-                this.type="animation";
+                this.type="Animation";
                 break;
             case 2:
-                this.type="emotion";
+                this.type="Emotion";
                 break;
             case 3:
-                this.type="skin";
+                this.type="Skin";
                 break;
 
         }
