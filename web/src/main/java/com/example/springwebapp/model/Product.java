@@ -1,8 +1,9 @@
 package com.example.springwebapp.model;
 
-import java.util.Date;
 
 public class Product {
+
+    private Integer id;
 
     private String linc;
     private String description;
@@ -10,7 +11,7 @@ public class Product {
     private String prevImage;
     private Autor autor;
     private String type;
-    private String internalId;
+
     public Product(final String description, final Integer price, final String linc, final String prevLinc,final Autor autor,final Integer type) {
         this.autor=autor;
         this.description = description;
@@ -75,10 +76,10 @@ public class Product {
 
     public void setType(final String type) { this.type=type; }
 
-    public String getInternalId() {
-        return this.internalId;
+    public Integer getInternalId() {
+        return this.id;
     }
 
-    public void setInternalId(final String id) { this.internalId=id; }
+    public void setInternalId(final Integer id) { this.id=id; }
 
 }

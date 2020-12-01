@@ -24,6 +24,7 @@ import java.util.stream.Collectors;
 public class RestWebController {
     @PostMapping(value = "/order")
     public String postSortRul(@RequestBody String form, Model model) {
+        //Home.prodactGenerator();
         var a = form;
         var b = Home.products;
         if (a.contains("Name")) {
@@ -47,6 +48,7 @@ public class RestWebController {
 
     @PostMapping(value = "/Filter")
     public String postFilterRul(@RequestBody String form, HttpServletResponse response) {
+        Home.prodactGenerator();
         var a = form;
         var type = form.substring(form.indexOf(','));
         type = type.substring(type.indexOf(':') + 1);
@@ -67,10 +69,10 @@ public class RestWebController {
             String finalParam = param;
             var c = b.stream()
                     .filter(s -> finalParam.equals(s.getAutor().getName()))
-                    .collect(Collectors.toList());
+                   .collect(Collectors.toList());
             Home.products.clear();
             Home.products.addAll(c);
-        }
+       }
 
         var test = "resolve";
         //Home.model.addAttribute("products", c);

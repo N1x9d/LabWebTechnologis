@@ -1,10 +1,19 @@
 package com.example.springwebapp.model;
 
+
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class Autor {
+    private Integer id;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     private String name;
     private Double ratyByOurCompany;
     private ArrayList<Product> portfolio;
