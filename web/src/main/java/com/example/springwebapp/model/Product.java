@@ -1,24 +1,32 @@
 package com.example.springwebapp.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class Product {
 
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     private String linc;
     private String description;
     private Integer price;
     private String prevImage;
-    private Autor autor;
+    private String autor;
     private String type;
 
     public Product(final String description, final Integer price, final String linc, final String prevLinc,final Autor autor,final Integer type) {
-        this.autor=autor;
+        this.autor=autor.getName();
         this.description = description;
         this.price = price;
         this.linc=linc;
         this.prevImage=prevLinc;
-        this.autor.addPortfolio(this);
+        autor.addPortfolio(this);
         switch (type){
             case 1:
                 this.type="Animation";
@@ -64,11 +72,11 @@ public class Product {
 
     public void setPrevImage(final String linc) { this.prevImage=linc; }
 
-    public Autor getAutor() {
+    public String getAutor() {
         return this.autor;
     }
 
-    public void setAutor(final Autor autor) { this.autor=autor; }
+    public void setAutor(final String autor) { this.autor=autor; }
 
     public String getType() {
         return this.type;
@@ -82,4 +90,14 @@ public class Product {
 
     public void setInternalId(final Integer id) { this.id=id; }
 
+    public Product() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }

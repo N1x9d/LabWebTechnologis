@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a03803cb-cb0f-41e5-9646-8855139e57e8" name="Default Changelist" comment="" />
+    <list default="true" id="a03803cb-cb0f-41e5-9646-8855139e57e8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/example/springwebapp/Config.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/example/springwebapp/model/SelHistoryProduct.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/example/springwebapp/model/SellHistory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/resources/static/assets/js/cartScript.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/resources/templates/OrderHistory.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/example/springwebapp/SpringWebAppApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/example/springwebapp/SpringWebAppApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/example/springwebapp/controller/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/example/springwebapp/controller/Home.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/example/springwebapp/controller/RestWebController.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/example/springwebapp/controller/RestWebController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/example/springwebapp/controller/repo/AutorRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/example/springwebapp/controller/repo/HistoryRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/example/springwebapp/controller/repo/ProductRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/example/springwebapp/controller/repo/ProductRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/example/springwebapp/model/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/example/springwebapp/model/CurentClients.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/example/springwebapp/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/example/springwebapp/model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/resources/templates/cheakOut.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/resources/templates/cheakOut.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/resources/templates/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/resources/templates/error.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/resources/templates/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,9 +43,15 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/web" />
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="a03803cb-cb0f-41e5-9646-8855139e57e8" name="Default Changelist" comment="" />
@@ -34,13 +59,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602257778674</updated>
+      <workItem from="1608546307537" duration="130000" />
+      <workItem from="1608546504234" duration="48000" />
     </task>
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="2660" y="274" key="FileChooserDialogImpl" timestamp="1602257805528">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608546398649">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1608546398649" />
+    <state x="592" y="217" key="FileChooserDialogImpl" timestamp="1608546551411">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="2660" y="274" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1602257805528" />
+    <state x="592" y="217" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1608546551411" />
   </component>
 </project>

@@ -83,7 +83,7 @@
                     <div class="mini-cart-wrap">
                         <a href="/cheakOut" class="btn-mini-cart">
                             <i class="ion-bag"></i>
-                            <span class="cart-total" th:text="${client.ProductCount}"></span>
+                            <span class="cart-total" th:text="${client}"></span>
                         </a>
                     </div>
                     <div class="responsive-menu d-lg-none">
@@ -208,7 +208,7 @@
                 <div class="product-wrapper product-layout layout-grid">
                     <div class="row mtn-30">
                         <!-- Start Product Item -->
-                        <div class="col-sm-6 col-lg-4 col-xl-3" th:each="product, state : ${products}">
+                        <div class="col-sm-6 col-lg-4 col-xl-3" th:each="product : ${products}">
                             <div class="product-item">
                                 <div class="product-item__thumb">
                                     <a href="single-product.html">
@@ -230,12 +230,12 @@
                                         <span class="price"><strong>Price:</strong> <strong th:text="${product.price}"/>$</span>
                                     </div>
                                     <div class="product-item__action">
-                                        <button class="btn-add-to-cart" th:id="${state.index}"><i class="ion-bag"></i>
+                                        <button class="btn-add-to-cart" th:id="${product.id}"><i class="ion-bag"></i>
                                         </button>
                                         <button class="btn-add-to-cart"><i class="ion-ios-heart-outline"></i></button>
                                         <button class="btn-add-to-cart"><i class="ion-eye"></i></button>
                                         <a href="#" class="badge badge-light">
-                                            <b th:text="${product.autor.name}"/>
+                                            <b th:text="${product.autor}"/>
                                             <b th:text="${product.type}"/>
                                         </a>
                                     </div>
