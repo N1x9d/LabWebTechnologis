@@ -2,13 +2,11 @@ package com.example.springwebapp.controller;
 
 import com.example.springwebapp.controller.repo.HistoryRepo;
 import com.example.springwebapp.controller.repo.ProductRepo;
-import com.example.springwebapp.model.Autor;
-import com.example.springwebapp.model.Product;
-import com.example.springwebapp.model.SelHistoryProduct;
-import com.example.springwebapp.model.SellHistory;
+import com.example.springwebapp.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -50,19 +48,19 @@ public class Home {
         String sid = session.getId();
         model.addAttribute("sid", sid);
 
-        var PShopList=(List<Product>)session.getAttribute(sid);
+        var PShopList = (List<Product>) session.getAttribute(sid);
         Integer count;
-        if(PShopList==null)
-            count=0;
+        if (PShopList == null)
+            count = 0;
         else
-            count=PShopList.size();
+            count = PShopList.size();
         model.addAttribute("client", count);
-        var c=prrepo.findAll();
-        var b=(ArrayList<Product>)c;
+        var c = prrepo.findAll();
+        var b = (ArrayList<Product>) c;
         if (products.size() == 0 && (filters_autor.size() != 0 || filters_type.size() != 0))
             return "MainWithoutProducts";
 
-        else if (b.size()== 0 || filters_autor.size() == 0 && filters_type.size() == 0 && order_type.size() == 0) {
+        else if (b.size() == 0 || filters_autor.size() == 0 && filters_type.size() == 0 && order_type.size() == 0) {
             prodactGenerator();
 
         }
@@ -71,22 +69,21 @@ public class Home {
             var pr = prrepo.findAll();
             var a = prrepo.findAll();
             model.addAttribute("products", pr);
-        }
-        catch (Exception ex){
-            var a=ex.getMessage();
+        } catch (Exception ex) {
+            var a = ex.getMessage();
             model.addAttribute("error", a);
 
         }
 
         model.addAttribute("autors", this.autors);
-        return "index2";
+        return "index";
     }
 
     @RequestMapping("/cheakOut")
     public String ChekOut(Model model, HttpSession session) {
         String sid = session.getId();
-        var prodacts = (List<Product>)session.getAttribute(sid);
-        var sum=prodacts.stream().filter(o -> o.getPrice() >= 0).mapToInt(Product::getPrice).sum();
+        var prodacts = (List<Product>) session.getAttribute(sid);
+        var sum = prodacts.stream().filter(o -> o.getPrice() >= 0).mapToInt(Product::getPrice).sum();
         model.addAttribute("client", prodacts.size());
         model.addAttribute("sum", sum);
         model.addAttribute("sid", sid);
@@ -118,32 +115,43 @@ public class Home {
 
     }
 
-    @PostMapping(value = "/cheakOut/confirmation")
-    public String BuedProducts(@RequestBody Map<String, String> json, Model model,HttpSession session) {
-        var a=json;
-        var sid=session.getId();
-        var prods=(ArrayList<Product>)session.getAttribute(sid);
-        for (Product pr:
-             prods) {
-            Histrepo.save(new SellHistory(new Date(),a.get("Email"),pr.getId(),pr.getPrice(),a.get("Payment")));
+    @GetMapping(value = "/GetForReact")
+    public ArrayList<ProductMini> GetCartForReact(HttpSession session) {
+        String sid = session.getId();
+        var prodacts = (List<Product>) session.getAttribute(sid);
+        ArrayList<ProductMini> request = new ArrayList<>();
+        for (var prod :
+                prodacts) {
+            request.add(new ProductMini(prod.getPrevImage(), prod.getDescription(), prod.getPrice(), prod.getId()));
         }
-        ArrayList<SelHistoryProduct> shp=new ArrayList<>();
-        var his=Histrepo.findAll();
-        var His=(ArrayList<SellHistory>)his;
-        var pr=prrepo.findAll();
-        var b=(ArrayList<Product>) pr;
-        for (SellHistory sh:
+        return request;
+    }
+
+    @PostMapping(value = "/cheakOut/confirmation")
+    public String BuedProducts(@RequestBody Map<String, String> json, Model model, HttpSession session) {
+        var a = json;
+        var sid = session.getId();
+        var prods = (ArrayList<Product>) session.getAttribute(sid);
+        for (Product pr :
+                prods) {
+            Histrepo.save(new SellHistory(new Date(), a.get("Email"), pr.getId(), pr.getPrice(), a.get("Payment")));
+        }
+        ArrayList<SelHistoryProduct> shp = new ArrayList<>();
+        var his = Histrepo.findAll();
+        var His = (ArrayList<SellHistory>) his;
+        var pr = prrepo.findAll();
+        var b = (ArrayList<Product>) pr;
+        for (SellHistory sh :
                 His) {
-            var prod= b.stream()
+            var prod = b.stream()
                     .filter(s -> sh.getProdId() == s.getId())
                     .collect(Collectors.toList());
-            shp.add(new SelHistoryProduct(prod.get(0),sh));
+            shp.add(new SelHistoryProduct(prod.get(0), sh));
         }
-        model.addAttribute("shp",shp);
+        model.addAttribute("shp", shp);
         return "OrderHistory";
 
     }
-
 
 
     @PostMapping(value = "/order")
@@ -213,7 +221,7 @@ public class Home {
         prodId = prodId.substring(prodId.indexOf('"') + 1, prodId.lastIndexOf('"'));
         List<Product> prods = (List<Product>) session.getAttribute(sid);
         Iterable<Product> pr = prrepo.findAll();
-        var b=(ArrayList<Product>) pr;
+        var b = (ArrayList<Product>) pr;
         if (prods == null)
             prods = new ArrayList<>();
         Integer finalProdId = Integer.parseInt(prodId);
